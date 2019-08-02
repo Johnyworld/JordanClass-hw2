@@ -1,0 +1,42 @@
+.TodoItem {
+	margin-bottom: 30px;
+	border-bottom: 1px dotted #bbb;
+	padding-bottom: 10px;
+	overflow: hidden;
+	font-size: 1.4rem;
+	cursor: pointer;
+}
+
+.TodoItem:hover .check,
+.TodoItem:hover .remove {
+	opacity: 0.5;
+}
+
+.TodoItem:last-child {
+	margin-bottom: 0;
+}
+
+.TodoItem.active {
+	text-decoration: line-through;
+	color: #dda0dd;
+}
+
+.TodoItem.active .check {
+	opacity: 0.8;
+}
+
+.TodoItem .check {
+	float: left;
+	opacity: 0;
+}
+
+.TodoItem .text {
+	margin-left: 35px;
+	overflow: hidden;
+}
+
+.TodoItem .remove {
+	float: right;
+	font-size: 1.2rem;
+	opacity: 0;
+}
