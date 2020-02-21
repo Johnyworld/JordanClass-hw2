@@ -1,6 +1,5 @@
 import React, { Component, createRef } from 'react';
 import './CreateForm.css';
-import { maxScore, minScore, scoreStep } from './MovieContainer';
 
 const createPlaceholder = word => {
     const isVowel = ['a', 'o', 'e', 'i', 'u', 'A', 'O', 'E', 'I', 'U'].includes(word[0]);
@@ -11,24 +10,22 @@ const toCapitalize = text => {
     return text.toLowerCase().replace(/^./, text[0].toUpperCase());
 };
 
-class CreateForm extends Component {
+class CreateFormEvent extends Component {
     state = {
         name: '',
-        score: 0,
-        watched: false
+        date: new Date().toISOString().substr(0, 10)
     };
 
     nameForm = createRef();
 
     handleSubmit = e => {
         e.preventDefault();
-        const { name, score, watched } = this.state;
+        const { name, date } = this.state;
         const { onAdd } = this.props;
-        onAdd({ name, score, watched });
+        onAdd({ name, date });
         this.setState({
             name: '',
-            score: 0,
-            watched: false
+            date: new Date().toISOString().substr(0, 10)
         });
         this.nameForm.current.focus();
     };
@@ -38,7 +35,7 @@ class CreateForm extends Component {
     };
 
     render() {
-        const { name, score, watched } = this.state;
+        const { name, date } = this.state;
         return (
             <div className='CreateForm'>
                 <form onSubmit={this.handleSubmit} className='form_container'>
@@ -54,24 +51,12 @@ class CreateForm extends Component {
                             placeholder={createPlaceholder(this.props.type)}
                         />
                     </div>
-                    <div className='score-form'>
-                        <label htmlFor='score'>Score</label>
+                    <div className='date-form'>
+                        <label htmlFor='score'>Date</label>
                         <input
-                            name='score'
-                            type='number'
-                            value={score}
-                            min={minScore}
-                            onChange={this.onChange}
-                            max={maxScore}
-                            step={scoreStep}
-                        />
-                    </div>
-                    <div className='check-form'>
-                        <label htmlFor='watched'>Watched?</label>
-                        <input
-                            name='watched'
-                            type='checkbox'
-                            checked={watched}
+                            name='date'
+                            type='date'
+                            value={date}
                             onChange={this.onChange}
                         />
                     </div>
@@ -82,4 +67,4 @@ class CreateForm extends Component {
     }
 }
 
-export default CreateForm;
+export default CreateFormEvent;

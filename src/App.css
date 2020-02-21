@@ -1,14 +1,61 @@
+div,
+p,
+a,
+li,
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 .App {
-	max-width: 640px;
-	margin: 0 auto;
-	overflow: hidden;
-	font-size: 1.5rem;
+    max-width: 640px;
+    margin: 0 auto;
+    overflow: hidden;
+    font-size: 1.5rem;
 }
 
 .App h3 {
-	margin: 30px 0 0 0;
-	padding: 30px 0;
-	background-color: plum;
-	text-align: center;
-	color: #eee;
+    margin: 30px 0 0 0;
+    padding: 30px 0;
+    background-color: plum;
+    text-align: center;
+    color: #eee;
+}
+
+.flex-align {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.menu a {
+    display: block;
+    color: black;
+    float: left;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu a:not(:last-child) {
+    margin-right: 20px;
+}
+
+.menu a.selected {
+    font-weight: 600;
+    color: #853eb9;
+    border-bottom: 1px solid;
 }

@@ -2,3 +2,8 @@
 	background-color: #fff;
 	padding: 50px 30px;
 }
+
+.TodoList li {
+	border-bottom: 1px solid #ddd;
+	padding: 10px;
+}
